@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vishnu Sahasranama</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       COSMIC BACKGROUND
+  ========================== -->
+
+  <div class="cosmos"></div>
+  <div class="moon-aura"></div>
+
+  <div id="stars"></div>
+  <div id="fireflies"></div>
+  <div id="sanskritLetters"></div>
+
+  <div class="chakra-bg"></div>
+
+  <!-- =========================
+       LANGUAGE TOGGLE
+  ========================== -->
+
+  <div class="language-toggle">
+
+    <button
+      id="englishBtn"
+      class="active"
+      onclick="changeLanguage('en')">
+      English
+    </button>
+
+    <button
+      id="kannadaBtn"
+      onclick="changeLanguage('kn')">
+      ಕನ್ನಡ
+    </button>
+
+  </div>
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main class="landing-container">
+
+   <section class="quote-card">
+
+    <div class="lotus-icon">
+        🪷
+    </div>
+
+    <h1 class="quote-sanskrit">
+        श्री विष्णु सहस्रनामम्
+    </h1>
+
+    <h2 class="main-title">
+
+        अन्तर्मुख समाराध्या <br>
+        बहिर्मुख सुदुर्लभा
+
+    </h2>
+
+    <p
+        id="transliteration"
+        class="transliteration">
+
+        Antarmukha samārādhya,
+        bahirmukha sudurlabha
+
+    </p>
+
+    <p
+        id="quoteMeaning"
+        class="quote-meaning">
+
+        The Divine is easily worshipped by those who turn inward —
+        but is very difficult to find by those who seek only outward.
+
+    </p>
+
+    <div
+        id="quoteBreakdown"
+        class="quote-breakdown">
+
+        <strong id="breakdownTitle">
+            Sandhi & Meaning
+        </strong>
+
+        <br><br>
+
+        <span id="quoteBreakdownText">
+
+            antarmukha = antara (inner) + mukha (direction)
+
+            <br><br>
+
+            samārādhya = sam + ā + rādh
+            (to worship completely)
+
+            <br><br>
+
+            bahirmukha = bahira (outer) + mukha (direction)
+
+            <br><br>
+
+            sudurlabha = su + dur + labha
+            (very difficult to attain)
+
+        </span>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         NAVIGATION CARDS
+    ========================== -->
+
+    <section class="cards-container">
+
+      <!-- HISTORY -->
+
+      <a href="history.html" class="magic-card">
+
+        <div class="card-icon">
+          📜
+        </div>
+
+        <h2>History</h2>
+
+        <p id="historyText">
+          Discover the story behind
+          Vishnu Sahasranama
+        </p>
+
+      </a>
+
+      <!-- SHLOKAS -->
+
+      <a href="shlokas.html" class="magic-card">
+
+        <div class="card-icon">
+          📖
+        </div>
+
+        <h2>Learn Shlokas</h2>
+
+        <p id="shlokaText">
+          Study Sanskrit,
+          meaning and reflection
+        </p>
+
+      </a>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       HIDDEN OM EFFECT
+  ========================== -->
+
+  <div id="hiddenOm">
+    ॐ
+  </div>
+
+  <!-- =========================
+       PAGE SCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =========================
+       LANGUAGE DATA
+    ========================== */
+
+    const translations = {
+
+  en: {
+
+    transliteration:
+      "Antarmukha samārādhya, bahirmukha sudurlabha",
+
+    quote:
+      "The Divine is easily worshipped by those who turn inward — but is very difficult to find by those who seek only outward.",
+
+    breakdownTitle:
+      "Sandhi & Meaning",
+
+    breakdown:
+      `antarmukha = antara (inner) + mukha (direction)
+
+samārādhya = sam + ā + rādh (to worship completely)
+
+bahirmukha = bahira (outer) + mukha (direction)
+
+sudurlabha = su + dur + labha (very difficult to attain)`,
+
+    history:
+      "Discover the story behind Vishnu Sahasranama",
+
+    shlokas:
+      "Study Sanskrit, meaning and reflection"
+
+  },
+
+  kn: {
+
+    transliteration:
+      "ಅಂತರ್ಮುಖ ಸಮಾರಾಧ್ಯ, ಬಹಿರ್ಮುಖ ಸುದುರ್ಲಭ",
+
+    quote:
+      "ಅಂತರಂಗದ ಕಡೆ ಮುಖಮಾಡುವವರಿಗೆ ಪರಮಾತ್ಮನ ಆರಾಧನೆ ಸುಲಭ; ಹೊರಜಗತ್ತಿನಲ್ಲಿ ಮಾತ್ರ ಹುಡುಕುವವರಿಗೆ ಆ ದೈವಾನುಭವ ಅತ್ಯಂತ ದುರ್ಲಭ.",
+
+    breakdownTitle:
+      "ಪದ ವಿಭಜನೆ",
+
+    breakdown:
+      `ಅಂತರ್ಮುಖ = ಅಂತರ (ಒಳಗೆ) + ಮುಖ
+
+ಸಮಾರಾಧ್ಯ = ಸಮ್ + ಆ + ರಾಧ್
+
+ಬಹಿರ್ಮುಖ = ಬಹಿರ್ (ಹೊರಗೆ) + ಮುಖ
+
+ಸುದುರ್ಲಭ = ಸು + ದುರ್ + ಲಭ`,
+
+    history:
+      "ವಿಷ್ಣು ಸಹಸ್ರನಾಮದ ಹಿನ್ನೆಲೆಯ ಕಥೆಯನ್ನು ತಿಳಿಯಿರಿ",
+
+    shlokas:
+      "ಸಂಸ್ಕೃತ, ಅರ್ಥ ಮತ್ತು ಆತ್ಮಚಿಂತನೆ ಕಲಿಯಿರಿ"
+
+  }
+
+};
+    /* =========================
+       LANGUAGE SWITCH
+    ========================== */
+
+    function changeLanguage(lang) {
+
+        document.getElementById("transliteration").innerText =
+        translations[lang].transliteration;
+
+        document.getElementById("quoteMeaning").innerText =
+        translations[lang].quote;
+
+        document.getElementById("breakdownTitle").innerText =
+        translations[lang].breakdownTitle;
+
+        document.getElementById("quoteBreakdownText").innerText =
+        translations[lang].breakdown;
+
+        document.getElementById("historyText").innerText =
+        translations[lang].history;
+
+        document.getElementById("shlokaText").innerText =
+        translations[lang].shlokas;
+
+      document
+        .getElementById("englishBtn")
+        .classList.remove("active");
+
+      document
+        .getElementById("kannadaBtn")
+        .classList.remove("active");
+
+      if (lang === "en") {
+
+        document
+          .getElementById("englishBtn")
+          .classList.add("active");
+
+      } else {
+
+        document
+          .getElementById("kannadaBtn")
+          .classList.add("active");
+
+      }
+
+      localStorage.setItem(
+        "vs_language",
+        lang
+      );
+
+    }
+
+    /* =========================
+       RESTORE LANGUAGE
+    ========================== */
+
+    const savedLanguage =
+      localStorage.getItem("vs_language") || "en";
+
+    changeLanguage(savedLanguage);
+
+    /* =========================
+       STARS
+    ========================== */
+
+    const stars =
+      document.getElementById("stars");
+
+    for (let i = 0; i < 120; i++) {
+
+      const star =
+        document.createElement("div");
+
+      star.classList.add("star");
+
+      star.style.left =
+        Math.random() * 100 + "%";
+
+      star.style.top =
+        Math.random() * 100 + "%";
+
+      star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+      stars.appendChild(star);
+
+    }
+
+    /* =========================
+       FIREFLIES
+    ========================== */
+
+    const fireflies =
+      document.getElementById("fireflies");
+
+    for (let i = 0; i < 18; i++) {
+
+      const firefly =
+        document.createElement("div");
+
+      firefly.classList.add("firefly");
+
+      firefly.style.left =
+        Math.random() * 100 + "%";
+
+      firefly.style.top =
+        Math.random() * 100 + "%";
+
+      firefly.style.animationDelay =
+        Math.random() * 20 + "s";
+
+      fireflies.appendChild(firefly);
+
+    }
+
+    /* =========================
+       FLOATING SANSKRIT LETTERS
+    ========================== */
+
+    const letters = [
+      "ॐ",
+      "वि",
+      "ष्णु",
+      "न",
+      "मो",
+      "नारायण",
+      "श्री",
+      "हरिः"
+    ];
+
+    const container =
+      document.getElementById("sanskritLetters");
+
+    for (let i = 0; i < 15; i++) {
+
+      const span =
+        document.createElement("span");
+
+      span.className =
+        "floating-sanskrit";
+
+      span.innerText =
+        letters[
+          Math.floor(
+            Math.random() * letters.length
+          )
+        ];
+
+      span.style.left =
+        Math.random() * 100 + "%";
+
+      span.style.animationDelay =
+        Math.random() * 15 + "s";
+
+      span.style.fontSize =
+        (16 + Math.random() * 22) + "px";
+
+      container.appendChild(span);
+
+    }
+
+    /* =========================
+       HIDDEN OM EFFECT
+    ========================== */
+
+    const hiddenOm =
+      document.getElementById("hiddenOm");
+
+    setInterval(() => {
+
+      hiddenOm.classList.add("show-om");
+
+      setTimeout(() => {
+
+        hiddenOm.classList.remove("show-om");
+
+      }, 3000);
+
+    }, 70000);
+
+  </script>
+
+</body>
+</html>
